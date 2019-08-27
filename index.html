@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Turnos ITC</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+              
+                
+              
+              </head>
+<body onload="loadDoc()">
+
+<h2>Seleccione un Día</h2>
+<button type="button" onclick="loadDoc('back')">Día anterior</button>
+<button type="button" onclick="loadDoc('next')">Siguiente día</button>
+
+<p id="demo"></p>
+ 
+<script type="text/javascript">
+var contar=0;
+ function loadDoc(query)
+ {
+  if(query == "next") {
+  contar++ ;
+}else if(query =="back")
+{
+    contar--;
+}
+  $.ajax({
+   url:"fetch.php",
+   method:"POST",
+   data:{query:contar},
+   success:function(data)
+   {
+    $('#demo').html(data);
+   }
+  });
+ }
+  </script>
+
+</body>
+</html>
