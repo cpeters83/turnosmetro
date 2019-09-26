@@ -22,11 +22,13 @@ $interval = date_diff($fechainicial, $fechaactual);
 $week = $interval->format('%a') / 7;
 $week = (round($week,1)); 
 
-while($week > 8)
+while($week >= 8)
 {
     $week = $week - 8;
 }
-$especialista = array("A","AA","B","BB","C","CC","D","DD");
+$especialista = array("Paula Pincheira","Paola Canadell","Larisa Suarez","Miriam Bravo","Victor Perez","CC","Jesus Ramirez","DD");
+
+
 
 $url = 'turnositc.json'; // ruta del archivo JSON con los turnos de 8 semanas
 $data = file_get_contents($url); // se abre el archivo JSON para lectura
@@ -60,9 +62,9 @@ for($i=0;$i<8;$i++){
     if($_SERVER["REQUEST_METHOD"] == "POST") {    
 
 
-       echo '<table class="table table-striped table-bordered table-sm">';
-       echo '<thead class="thead-dark">';
-       echo '<tr><th>Horario</th><th colspan="3">Nombres </th></tr></thead><tr>';
+       echo '<table>';
+       echo '<thead>';
+       echo '<tr><th id="horario">Horario</th><th id="nombres" colspan = 4>Nombres</th></tr></thead><tr>';
        echo '<td>07:00 a 14:00</td>';
        
         foreach ($turnoM as &$valor) {

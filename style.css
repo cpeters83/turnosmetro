@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+  }
+  th{
+     background-color: black;
+     color: white; 
+  }
+
+  th, td {
+    text-align: left;
+    padding: 15px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+
+#horario {
+    width: 150px;
+}
+
+#nombres {
+    width: 500px;
+}
+
+.control{
+  color: white;
+  background-color: #2874A6;
+  border: 1px solid #1B4F72 ;
+  padding: 15px;
+  width: 500px;
+}
+.divmetro{
+  color: white;
+  background: linear-gradient(to right, rgb(63, 28, 31), rgb(143, 31, 124));
+  border: 1px solid #1B4F72 ;
+  padding: 25px;
+  width: 500px;
+}

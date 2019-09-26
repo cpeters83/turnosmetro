@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Turnos Datacenter</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="turnos.css">  
+  <script type="text/javascript">
+$(document).ready( function(){
+refreshAt(0,0,02); 
+});
+
+//funcion para recargar pagina a las 00:00
+function refreshAt(hours, minutes, seconds) {
+    var now = new Date();
+    var then = new Date();
+	 
+    if(now.getHours() > hours ||
+       (now.getHours() == hours && now.getMinutes() > minutes) ||
+        now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+        then.setDate(now.getDate() + 1);
+
+    }
+    then.setHours(hours);
+    then.setMinutes(minutes);
+    then.setSeconds(seconds);
+
+    var timeout = (then.getTime() - now.getTime());
+    setTimeout(function() { window.location.reload(true); }, timeout);
+    refreshAt(0,0,02);  
+}
+</script>
+
+
 </head>
 <body>
 
@@ -70,10 +96,9 @@ for ($i=0; $i<= 8; $i++){
 
 ?>
 
-<table class="table table-striped table-bordered table-sm">
-<thead class="thead-dark">
+<table  class="center">
 <tr>
-<th>Horario</th>
+<th class="horario">Horario</th>
 <th colspan="3">Especialistas</th>
 </tr>
 </thead>
